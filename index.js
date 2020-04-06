@@ -1,10 +1,11 @@
 require('dotenv').config();
 
 const express       = require('express'),
-      app           = express();
+      app           = express(),
+      cors          = require('cors');
 
 app.use(express.json());
-
+app.use(cors());
 
 
 require('./src/app/controllers/index')(app);
