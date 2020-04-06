@@ -21,7 +21,7 @@ app.use(function(e, req, res, next) {
 });
 
 
-const port = 9000;
+const port = proces.env.PORT || 9000;
 app.listen(port);
 
 console.log('Servidor rodando na porta: ', port);
