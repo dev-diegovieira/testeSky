@@ -1,1 +1,1 @@
-Realização de API Rest para realização do teste da Sky
+Realização de API Rest para teste da Sky
