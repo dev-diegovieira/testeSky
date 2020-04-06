@@ -1,0 +1,26 @@
+require('dotenv').config();
+
+const express       = require('express'),
+      app           = express();
+
+app.use(express.json());
+
+
+
+require('./src/app/controllers/index')(app);
+
+app.all('*', function(req, res) {
+    throw new Error("Bad request")
+});
+
+app.use(function(e, req, res, next) {
+    if (e.message === "Bad request") {
+        res.status(400).json({mensagem: 'O endpoint não existe'});
+    }
+});
+
+
+const port = 9000;
+app.listen(port);
+
+console.log('Servidor rodando na porta: ', port);
